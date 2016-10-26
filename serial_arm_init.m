@@ -9,7 +9,7 @@ function r = serial_arm_init(d, a, alpha, offset, type, base)
     r.q = zeros(r.n, 1);
     r.type = type;
        
-    r.pts = zeros(3, r.n+1);
+    r.x = zeros(3, r.n+1);
     r.jac = zeros(3, r.n);
     r.ee = [0;0;0];
     

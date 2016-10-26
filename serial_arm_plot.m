@@ -21,7 +21,7 @@ if (r.h == -1)
     %axis equal tight
 end
 
-set(r.h, 'XData', r.pts(1, :), 'YData', r.pts(2, :), 'ZData', r.pts(3, :));
+set(r.h, 'XData', r.x(1, :), 'YData', r.x(2, :), 'ZData', r.x(3, :));
 
 for i = 1:r.n+1   
     vx(:, i) = r.T(1:3,1:3,i)*[1; 0; 0];
@@ -29,11 +29,11 @@ for i = 1:r.n+1
     vz(:, i) = r.T(1:3,1:3,i)*[0; 0; 1];
 end 
 
-set(r.quiver_x, 'XData', r.pts(1, :), 'YData', r.pts(2, :), 'ZData', r.pts(3, :), ...
+set(r.quiver_x, 'XData', r.x(1, :), 'YData', r.x(2, :), 'ZData', r.x(3, :), ...
     'UData', vx(1,:), 'VData', vx(2,:), 'WData', vx(3,:));
-set(r.quiver_y, 'XData', r.pts(1, :), 'YData', r.pts(2, :), 'ZData', r.pts(3, :), ...
+set(r.quiver_y, 'XData', r.x(1, :), 'YData', r.x(2, :), 'ZData', r.x(3, :), ...
     'UData', vy(1,:), 'VData', vy(2,:), 'WData', vy(3,:));
-set(r.quiver_z, 'XData', r.pts(1, :), 'YData', r.pts(2, :), 'ZData', r.pts(3, :), ...
+set(r.quiver_z, 'XData', r.x(1, :), 'YData', r.x(2, :), 'ZData', r.x(3, :), ...
     'UData', vz(1,:), 'VData', vz(2,:), 'WData', vz(3,:));
 
 drawnow;
