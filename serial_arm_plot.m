@@ -1,4 +1,5 @@
 function r = serial_arm_plot(r)
+% Plot the robot
 
 % Adjust the scale of the three arrows representing the coordinate frame
 axis_scale = 0.5;

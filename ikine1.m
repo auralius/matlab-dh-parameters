@@ -1,6 +1,17 @@
-function q = ikine1(r, p, treshold, max_iter)
+function q = ikine1(r, p, treshold, max_iter, q0)
+% https://groups.csail.mit.edu/drl/journal_club/papers/033005/buss-2004.pdf
+% Equ. 7
 
-ra = rank(r.jac); % check the rank of the jacobian, if rank == 2, planar robot
+if nargin  < 3
+    treshold = 0.01;
+    max_iter = 100;
+    q0 = zeros(r.n, 1);
+elseif nargin  < 4
+    max_iter = 100;
+    q0 = zeros(r.n, 1);
+elseif nargin  < 5
+    q0 = zeros(r.n, 1);
+end
 
 x = r.ee;
 q = r.q;
@@ -12,9 +23,8 @@ while 1
     k = k + 1;
     
     delta_x = p - x;
-    
-    jac = jac(1:ra, :);
-    delta_q = jac'*inv(jac*jac')*delta_x(1:ra,:);
+
+    delta_q = pinv(jac)*delta_x + (eye(r.n) - pinv(jac)*jac) * q0;
     q = q + delta_q;
     
     T = fkine_dh_ee_only(r.n, q, r.d, r.a, r.alpha, r.offset); 

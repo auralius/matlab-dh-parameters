@@ -60,11 +60,11 @@ disp(planar_4r.T(:,:,end));
 disp('Jac=')
 disp(planar_4r.jac)
 
-
-
-
+% -------------------------------------------------------------------------
+% Testing inverse kinematics here
+% -------------------------------------------------------------------------
 pause(1);
-q = ikine1(planar_4r, [0; 1; 0], 0.01, 100);
+q = ikine1(planar_4r, [1; 0; 0], 0.01, 100);
 planar_4r = serial_arm_set_all_joint_pos(planar_4r, q);
 planar_4r = serial_arm_update(planar_4r);
 planar_4r = serial_arm_plot(planar_4r);
