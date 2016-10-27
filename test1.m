@@ -25,7 +25,7 @@ disp('Jac=')
 disp(scara.jac)
 
 pause(1);
-scara = serial_arm_actuate_joint(scara, 3, pi/3);
+scara = serial_arm_set_joint_pos(scara, 3, pi/3);
 scara = serial_arm_update(scara);
 scara = serial_arm_plot(scara);   
 disp('-----')
@@ -37,7 +37,7 @@ disp('Jac=')
 disp(scara.jac)
 
 pause(1);
-scara = serial_arm_actuate_joint(scara, 3, 0);
+scara = serial_arm_set_joint_pos(scara, 3, 0);
 scara = serial_arm_update(scara);
 scara = serial_arm_plot(scara);
 disp('-----')
@@ -49,7 +49,7 @@ disp('Jac=')
 disp(scara.jac)
 
 pause(1);
-scara = serial_arm_actuate_joint(scara, 4, -0.5);
+scara = serial_arm_set_joint_pos(scara, 4, -0.5);
 scara = serial_arm_update(scara);
 scara = serial_arm_plot(scara);
 disp('-----')
@@ -62,7 +62,7 @@ disp(scara.jac)
 
 
 pause(1);
-scara = serial_arm_actuate_joint(scara, 4, 0);
+scara = serial_arm_set_joint_pos(scara, 4, 0);
 scara = serial_arm_update(scara);
 scara = serial_arm_plot(scara);
 disp('-----')
@@ -73,3 +73,15 @@ disp(scara.T(:,:,end));
 disp('Jac=')
 disp(scara.jac)
 
+
+pause(1);
+scara = serial_arm_set_all_joint_pos(scara, [0 0 0 0]);
+scara = serial_arm_update(scara);
+scara = serial_arm_plot(scara);
+disp('-----')
+disp('EE=')
+disp(scara.ee)
+disp('EE homogenous transformation=')
+disp(scara.T(:,:,end));
+disp('Jac=')
+disp(scara.jac)

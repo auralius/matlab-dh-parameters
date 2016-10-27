@@ -1,4 +1,4 @@
-function r = serial_arm_actuate_joint(r, idx, q)
+function r = serial_arm_set_joint_pos(r, idx, q)
 % Set position of joint-'idx' to 'q'.
 % q is an absolute joint value.
 

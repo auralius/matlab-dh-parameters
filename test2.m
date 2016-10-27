@@ -25,7 +25,7 @@ disp('Jac=')
 disp(planar_4r.jac)
 
 pause(1);
-planar_4r = serial_arm_actuate_joint(planar_4r, 1, pi/6);
+planar_4r = serial_arm_set_joint_pos(planar_4r, 1, pi/6);
 planar_4r = serial_arm_update(planar_4r);
 planar_4r = serial_arm_plot(planar_4r);   
 disp('-----')
@@ -37,7 +37,7 @@ disp('Jac=')
 disp(planar_4r.jac)
 
 pause(1);
-planar_4r = serial_arm_actuate_joint(planar_4r, 2, pi/6);
+planar_4r = serial_arm_set_joint_pos(planar_4r, 2, pi/6);
 planar_4r = serial_arm_update(planar_4r);
 planar_4r = serial_arm_plot(planar_4r);
 disp('-----')
@@ -49,7 +49,7 @@ disp('Jac=')
 disp(planar_4r.jac)
 
 pause(1);
-planar_4r = serial_arm_actuate_joint(planar_4r, 3, pi/6);
+planar_4r = serial_arm_set_joint_pos(planar_4r, 3, pi/6);
 planar_4r = serial_arm_update(planar_4r);
 planar_4r = serial_arm_plot(planar_4r);
 disp('-----')
@@ -61,8 +61,11 @@ disp('Jac=')
 disp(planar_4r.jac)
 
 
+
+
 pause(1);
-planar_4r = serial_arm_actuate_joint(planar_4r, 4, pi/6);
+q = ikine1(planar_4r, [0; 1; 0], 0.01, 100);
+planar_4r = serial_arm_set_all_joint_pos(planar_4r, q);
 planar_4r = serial_arm_update(planar_4r);
 planar_4r = serial_arm_plot(planar_4r);
 disp('-----')
