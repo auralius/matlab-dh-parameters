@@ -8,6 +8,7 @@ Features:
 * Homogenous transformation of each link of the robot
 * Numerical jacobian
 * Simple visualization, it can also be animated
+* Inverse kinematics with the pseudo-inverse method.
 
 ![Screenshot][sshot]
 
